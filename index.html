@@ -3,10 +3,44 @@
    <head>
       <title>December 2024</title>
       <style>
+         body {
+            font-family: system-ui, 'Helvetica Neue', sans-serif;
+            font-size: 14px;
+            min-height: 100vh;
+         }
          canvas {
             background-color: #32325A;
+         }
+         .container {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
             margin: 3px;
             border-radius: 10px;
+            cursor: pointer;
+         }
+
+         .container > .info {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #000000CC;
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 2em;
+            line-height: 3rem;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+         }
+
+         .container:hover > .info {
+            opacity: 1;
+            transition: opacity 0.3s ease-in-out;
          }
 
          #scene {
@@ -72,13 +106,30 @@
          let currentScene = null;
 
          for (let day = 1; day <= 24; day++) {
+            const klass = classes[day];
+
+            const container = document.createElement("div");
+            container.className = "container";
+            container.style.width = cellSize + "px";
+            container.style.height = cellSize + "px";
             const canvas = document.createElement("canvas");
             canvas.width = cellSize;
             canvas.height = cellSize;
-            canvas.onclick = (e) => {
+
+            container.appendChild(canvas);
+            const info = document.createElement("div");
+            info.className = "info";
+            if (klass) {
+               info.innerHTML = "Day " + day + "<br/>" + klass.name;
+            } else {
+               info.innerHTML = "Day " + day;
+            }
+            container.appendChild(info);
+
+            info.onclick = (e) => {
                if (!scenes[day]) {
                   return;
-               }  
+               }
                const sceneCanvas = document.getElementById("scene");
                if (!currentScene) { 
                   e.stopPropagation();
@@ -86,7 +137,15 @@
                   currentScene = new scenes[day](sceneCanvas);
                   currentScene.start();
 
-                  document.getElementsByTagName('body')[0].onclick = (e) => {
+                  const body = document.getElementsByTagName('body')[0];
+                  body.onclick = (e) => closeScene(e);
+                  body.onkeydown = (e) => {
+                     if (e.key === "Escape") {
+                        closeScene(e);
+                     }
+                  };
+
+                  const closeScene = (e) => {
                      if (e.target === sceneCanvas) {
                         return;
                      }
@@ -96,7 +155,10 @@
                   };
                }
             }
-            document.body.appendChild(canvas);
+
+
+            
+            document.body.appendChild(container);
 
             fillCell(day, canvas);
          }
