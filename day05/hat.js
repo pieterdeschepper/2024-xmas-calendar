@@ -16,7 +16,7 @@ class Hat {
 
 	draw(ctx) {
 		const height = this.size * 0.5;
-		const width = this.size * 0.5;
+		const width = this.size * map(Math.random(), 0, 1, 0.4, 0.6);
 		const rimRadius = width * 0.9;
 		ctx.save();
 		ctx.translate(this.x, this.y);
