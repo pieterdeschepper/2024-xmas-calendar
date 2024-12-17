@@ -10,6 +10,7 @@ classes[6] = Button;
 classes[7] = Carrot;
 classes[8] = Scarf;
 classes[9] = Snowman;
+classes[10] = Moon;
 
 const scenes = [];
 scenes[1] = Scene1;
@@ -21,6 +22,7 @@ scenes[6] = Scene6;
 scenes[7] = Scene7;
 scenes[8] = Scene8;
 scenes[9] = Scene9;
+scenes[10] = Scene10;
 
 let currentScene = null;
 
@@ -71,6 +73,7 @@ for (let day = 1; day <= 24; day++) {
 				sceneCanvas.style.display = "none";
 				currentScene.stop();
 				currentScene = null;
+				body.onclick = null;
 			};
 		}
 	};

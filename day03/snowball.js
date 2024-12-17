@@ -7,8 +7,6 @@ class Snowball {
 
 	draw(ctx) {
 		ctx.fillStyle = Color.snowShadow;
-		ctx.strokeStyle = Color.snow;
-		ctx.lineWidth = 2;
 		ctx.beginPath();
 		ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
 		ctx.fill();
