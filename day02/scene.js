@@ -1,13 +1,11 @@
 class Scene2 extends Scene1 {
 	constructor(canvas) {
 		super(canvas);
-		this.hills = [new Hill(0, 0, 120), new Hill(0, 0, 80, "right")];
+		this.moon = new Moon(canvas.width - 100, 100, 80);
 	}
 
 	draw() {
 		super.draw();
-		for (let h of this.hills) {
-			h.draw(this.ctx);
-		}
+		this.moon.draw(this.ctx);
 	}
 }

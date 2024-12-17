@@ -41,4 +41,12 @@ class Scene {
 			this.start();
 		}
 	}
+
+	update() {
+		this.wind += randomBetween(-0.001, 0.001);
+	}
+
+	draw() {
+		this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+	}
 }

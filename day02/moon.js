@@ -22,10 +22,10 @@ class Moon {
 
 	render(canvas) {
 		const { width, height } = canvas;
-		this.image = document.createElement("canvas");
-		this.image.width = width;
-		this.image.height = height;
-		const ctx = this.image.getContext("2d");
+		const tmp = document.createElement("canvas");
+		tmp.width = width;
+		tmp.height = height;
+		const ctx = tmp.getContext("2d");
 
 		ctx.beginPath();
 		ctx.fillStyle = Color.moon;
@@ -43,21 +43,22 @@ class Moon {
 		ctx.arc(sunX, sunY, this.r, 0, Math.PI * 2);
 		ctx.fill();
 		ctx.globalCompositeOperation = "source-over";
+
+		this.image = document.createElement("canvas");
+		this.image.width = width;
+		this.image.height = height;
+		const ctxImage = this.image.getContext("2d");
+		ctxImage.filter = "blur(10px)";
+		ctxImage.drawImage(tmp, 0, 0);
+		ctxImage.filter = "none";
+		ctxImage.drawImage(tmp, 0, 0);
 	}
 
-	draw(ctx, blur = true) {
+	draw(ctx) {
 		if (!this.image) {
 			this.render(ctx.canvas);
 		}
-		if (blur) {
-			ctx.filter = "blur(10px)";
-		} else {
-			ctx.filter = "none";
-		}
 		ctx.drawImage(this.image, 0, 0);
-		if (blur) {
-			this.draw(ctx, false);
-		}
 	}
 }
 

@@ -1,23 +1,20 @@
 class Scene5 extends Scene4 {
 	constructor(canvas) {
 		super(canvas);
-		this.hat = new Hat(this.canvas.width / 2, this.canvas.height - 400, 100);
-	}
-
-	update() {
-		super.update();
-		this.hat.update(this.wind);
-		if (this.hat.x > this.canvas.width * 1.1) {
-			this.hat.x = -this.canvas.width * 0.1;
-		}
-
-		if (this.hat.x < -this.canvas.width * 0.1) {
-			this.hat.x = this.canvas.width * 1.1;
-		}
+		this.snowballs = [
+			new Snowball(100, canvas.height - 120, 50),
+			new Snowball(150, canvas.height - 120, 50),
+			new Snowball(200, canvas.height - 120, 50),
+			new Snowball(125, canvas.height - 162, 50),
+			new Snowball(175, canvas.height - 162, 50),
+			new Snowball(150, canvas.height - 204, 50),
+		];
 	}
 
 	draw() {
 		super.draw();
-		this.hat.draw(this.ctx);
+		for (let s of this.snowballs) {
+			s.draw(this.ctx);
+		}
 	}
 }

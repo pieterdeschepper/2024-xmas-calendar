@@ -1,34 +1,28 @@
 class Scene1 extends Scene {
 	constructor(canvas) {
 		super(canvas);
-		this.snowflakes = [];
-		this.wind = randomBetween(-0.01, 0.01);
-	}
-
-	update() {
-		if (this.frameCount % 30 == 1) {
-			this.snowflakes.push(
-				new Snowflake(
-					randomBetween(20, this.canvas.width - 20),
-					randomBetween(-20, -150),
-					randomBetween(10, 25)
-				)
-			);
-		}
-
-		for (let i = this.snowflakes.length - 1; i >= 0; i--) {
-			this.snowflakes[i].update(this.wind);
-			if (this.snowflakes[i].y > this.canvas.height) {
-				this.snowflakes.splice(i, 1);
+		this.stars = [];
+		let rowCount = Math.round(randomBetween(5, 10));
+		let colCount = Math.round(randomBetween(4, 6));
+		const height = this.canvas.height - 100;
+		for (let i = 0; i < rowCount; i++) {
+			for (let j = 0; j < colCount; j++) {
+				const x = randomBetween(
+					(i * this.canvas.width) / rowCount,
+					((i + 1) * this.canvas.width) / rowCount
+				);
+				const y = randomBetween(
+					(j * height) / colCount,
+					((j + 1) * height) / colCount
+				);
+				this.stars.push(new Star(x, y, randomBetween(20, 30)));
 			}
 		}
-
-		this.wind += randomBetween(-0.001, 0.001);
 	}
 
 	draw() {
-		this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-		for (let s of this.snowflakes) {
+		super.draw();
+		for (let s of this.stars) {
 			s.draw(this.ctx);
 		}
 	}

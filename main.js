@@ -1,16 +1,17 @@
 const cellSize = 200;
 
 const classes = [];
-classes[1] = Snowflake;
-classes[2] = Hill;
-classes[3] = Snowball;
-classes[4] = Stick;
-classes[5] = Hat;
-classes[6] = Button;
-classes[7] = Carrot;
-classes[8] = Scarf;
-classes[9] = Snowman;
-classes[10] = Moon;
+classes[1] = Star;
+classes[2] = Moon;
+classes[3] = Snowflake;
+classes[4] = Hill;
+classes[5] = Snowball;
+classes[6] = Stick;
+classes[7] = Hat;
+classes[8] = Button;
+classes[9] = Carrot;
+classes[10] = Scarf;
+classes[11] = Snowman;
 
 const scenes = [];
 scenes[1] = Scene1;
@@ -23,6 +24,7 @@ scenes[7] = Scene7;
 scenes[8] = Scene8;
 scenes[9] = Scene9;
 scenes[10] = Scene10;
+scenes[11] = Scene11;
 
 let currentScene = null;
 

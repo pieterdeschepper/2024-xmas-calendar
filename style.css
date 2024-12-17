@@ -1,0 +1,50 @@
+body {
+	font-family: system-ui, "Helvetica Neue", sans-serif;
+	font-size: 14px;
+	min-height: 100vh;
+}
+canvas {
+	background-color: #32325a;
+}
+.container {
+	position: relative;
+	overflow: hidden;
+	display: inline-block;
+	margin: 3px;
+	border-radius: 10px;
+	cursor: pointer;
+}
+
+.container > .info {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #000000cc;
+	color: #ffffff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	font-size: 2em;
+	line-height: 3rem;
+	opacity: 0;
+	transition: opacity 0.3s ease-in-out;
+}
+
+.container:hover > .info {
+	opacity: 1;
+	transition: opacity 0.3s ease-in-out;
+}
+
+#scene {
+	position: absolute;
+	top: 10%;
+	left: 10%;
+	width: 80%;
+	height: 80%;
+	background-color: #32325a;
+	outline: 100vh solid #000000cc;
+	border-radius: 20px;
+}
