@@ -3,6 +3,7 @@ class Hat {
 		this.x = x;
 		this.y = y;
 		this.size = size;
+		this.width = this.size * map(Math.random(), 0, 1, 0.35, 0.55);
 		this.angle = 0;
 		this.sideSpeed = 0;
 	}
@@ -16,7 +17,7 @@ class Hat {
 
 	draw(ctx) {
 		const height = this.size * 0.5;
-		const width = this.size * map(Math.random(), 0, 1, 0.4, 0.6);
+		const width = this.width;
 		const rimRadius = width * 0.9;
 		ctx.save();
 		ctx.translate(this.x, this.y);
