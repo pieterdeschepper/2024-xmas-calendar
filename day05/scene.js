@@ -1,20 +1,38 @@
 class Scene5 extends Scene4 {
 	constructor(canvas) {
 		super(canvas);
-		this.snowballs = [
-			new Snowball(100, canvas.height - 120, 50),
-			new Snowball(150, canvas.height - 120, 50),
-			new Snowball(200, canvas.height - 120, 50),
-			new Snowball(125, canvas.height - 162, 50),
-			new Snowball(175, canvas.height - 162, 50),
-			new Snowball(150, canvas.height - 204, 50),
-		];
+		this.clouds = [];
+	}
+
+	update() {
+		super.update();
+
+		const cloudSize = randomBetween(70, 90);
+
+		if (this.frameCount % 120 == 1) {
+			this.clouds.push(
+				new Cloud(
+					0,
+					randomBetween(30, this.canvas.height / 3),
+					cloudSize,
+					this.canvas
+				)
+			);
+		}
+
+		for (let i = this.clouds.length - 1; i >= 0; i--) {
+			const c = this.clouds[i];
+			c.update();
+			if (c.x < -200 || c > this.canvas.width) {
+				this.clouds.splice(i, 1);
+			}
+		}
 	}
 
 	draw() {
 		super.draw();
-		for (let s of this.snowballs) {
-			s.draw(this.ctx);
+		for (let c of this.clouds) {
+			c.draw(this.ctx);
 		}
 	}
 }

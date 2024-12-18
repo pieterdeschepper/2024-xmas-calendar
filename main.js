@@ -5,13 +5,14 @@ classes[1] = Star;
 classes[2] = Moon;
 classes[3] = Snowflake;
 classes[4] = Hill;
-classes[5] = Snowball;
-classes[6] = Stick;
-classes[7] = Hat;
-classes[8] = Button;
-classes[9] = Carrot;
-classes[10] = Scarf;
-classes[11] = Snowman;
+classes[5] = Cloud;
+classes[6] = Snowball;
+classes[7] = Stick;
+classes[8] = Hat;
+classes[9] = Button;
+classes[10] = Carrot;
+classes[11] = Scarf;
+classes[12] = Snowman;
 
 const scenes = [];
 scenes[1] = Scene1;
@@ -25,6 +26,7 @@ scenes[8] = Scene8;
 scenes[9] = Scene9;
 scenes[10] = Scene10;
 scenes[11] = Scene11;
+scenes[12] = Scene12;
 
 let currentScene = null;
 

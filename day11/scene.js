@@ -1,11 +1,11 @@
-class Scene11 extends Scene4 {
+class Scene11 extends Scene10 {
 	constructor(canvas) {
 		super(canvas);
-		this.snowman = new Snowman(250, canvas.height - 240, 400);
+		this.scarf = new Scarf(450, canvas.height - 120, 100);
 	}
 
 	draw() {
 		super.draw();
-		this.snowman.draw(this.ctx);
+		this.scarf.draw(this.ctx);
 	}
 }
