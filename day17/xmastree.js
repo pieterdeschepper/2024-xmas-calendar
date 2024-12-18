@@ -26,7 +26,7 @@ class XmasTree {
 
 		this.star = new Star(
 			x,
-			y - size * 0.5,
+			y - size * 0.52,
 			size * 0.12,
 			5,
 			(3 * Math.PI) / 2,
@@ -42,6 +42,14 @@ class XmasTree {
 		for (const b of this.balls) {
 			b.draw(ctx);
 		}
+		ctx.beginPath();
+		ctx.fillStyle = Color.moon;
+		ctx.fillRect(
+			this.x - this.size * 0.01,
+			this.y - this.size * 0.52,
+			this.size * 0.02,
+			this.size * 0.07
+		);
 		this.star.draw(ctx);
 	}
 }

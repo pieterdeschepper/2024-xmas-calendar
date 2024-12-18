@@ -12,13 +12,13 @@ class Tree {
 	render(canvas) {
 		//Render trunk and branches
 		this.image = document.createElement("canvas");
-		this.image.width = canvas.width;
-		this.image.height = canvas.height;
+		this.image.width = this.size;
+		this.image.height = this.size;
 		const ctx = this.image.getContext("2d");
 		ctx.beginPath();
 		ctx.save();
 		ctx.strokeStyle = Color.black;
-		ctx.translate(this.x, this.y + this.size / 2);
+		ctx.translate(this.size / 2, this.size);
 		ctx.rotate(this.rotation);
 		this.branch(ctx, this.len, this.len * 0.2, true);
 		ctx.restore();
@@ -44,7 +44,7 @@ class Tree {
 			if (Math.random() < 0.4) {
 				ctx.beginPath();
 				const green =
-					(180 * (canvas.height - pixel.y)) / canvas.height + 20;
+					(180 * (this.image.height - pixel.y)) / this.image.height;
 				ctx.fillStyle = "rgba(0," + green + ",0,0.4)";
 				ctx.save();
 				ctx.translate(pixel.x, pixel.y);
@@ -61,7 +61,7 @@ class Tree {
 		if (!this.image) {
 			this.render(ctx.canvas);
 		}
-		ctx.drawImage(this.image, 0, 0);
+		ctx.drawImage(this.image, this.x - this.size / 2, this.y - this.size / 2);
 	}
 
 	branch(ctx, len, thickness, trunk = false) {
