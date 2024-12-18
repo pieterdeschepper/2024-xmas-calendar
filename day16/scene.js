@@ -1,13 +1,13 @@
-class Scene14 extends Scene13 {
+class Scene16 extends Scene15 {
 	constructor(canvas) {
 		super(canvas);
-		this.lights = [];
+		this.balls = [];
 		for (let i = 0; i < 5; i++) {
-			this.lights.push(
-				new Light(
+			this.balls.push(
+				new Ball(
 					canvas.width - 100 * (i + 1),
 					randomBetween(canvas.height - 50, canvas.height - 20),
-					20
+					25
 				)
 			);
 		}
@@ -15,8 +15,8 @@ class Scene14 extends Scene13 {
 
 	draw() {
 		super.draw();
-		for (let l of this.lights) {
-			l.draw(this.ctx);
+		for (let b of this.balls) {
+			b.draw(this.ctx);
 		}
 	}
 }

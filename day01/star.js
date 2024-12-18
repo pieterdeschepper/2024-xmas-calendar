@@ -1,11 +1,19 @@
 class Star {
-	constructor(x, y, size) {
+	constructor(
+		x,
+		y,
+		size,
+		points = Math.round(randomBetween(4, 8)),
+		rotation = randomBetween(0, Math.PI * 2),
+		glow = true
+	) {
 		this.x = x;
 		this.y = y;
 		this.outerR = size / 2;
 		this.innerR = randomBetween(this.outerR * 0.1, this.outerR * 0.4);
-		this.points = Math.round(randomBetween(4, 8));
-		this.rotation = randomBetween(0, Math.PI * 2);
+		this.points = points;
+		this.rotation = rotation;
+		this.glow = glow;
 		this.image = null;
 	}
 
@@ -36,8 +44,10 @@ class Star {
 		this.image.width = width;
 		this.image.height = height;
 		const ctxImage = this.image.getContext("2d");
-		ctxImage.filter = "blur(10px)";
-		ctxImage.drawImage(tmp, 0, 0);
+		if (this.glow) {
+			ctxImage.filter = "blur(10px)";
+			ctxImage.drawImage(tmp, 0, 0);
+		}
 		ctxImage.filter = "none";
 		ctxImage.drawImage(tmp, 0, 0);
 	}
