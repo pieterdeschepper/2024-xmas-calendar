@@ -13,4 +13,5 @@ class Color {
 	static moonCraterShadow = "#626200";
 	static cloudShadow = "#b4b4b4";
 	static cloud = "#dcdcdc";
+	static leave = "#00770066";
 }

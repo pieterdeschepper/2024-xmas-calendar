@@ -13,6 +13,7 @@ classes[9] = Button;
 classes[10] = Carrot;
 classes[11] = Scarf;
 classes[12] = Snowman;
+classes[13] = Tree;
 
 const scenes = [];
 scenes[1] = Scene1;
@@ -27,6 +28,7 @@ scenes[9] = Scene9;
 scenes[10] = Scene10;
 scenes[11] = Scene11;
 scenes[12] = Scene12;
+scenes[13] = Scene13;
 
 let currentScene = null;
 
