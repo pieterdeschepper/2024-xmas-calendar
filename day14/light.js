@@ -22,7 +22,7 @@ class Light {
 		const ctx = tmp.getContext("2d");
 
 		ctx.beginPath();
-		ctx.fillStyle = `hsl(${this.hue}, 100%, 70%)`;
+		ctx.fillStyle = `hsl(${this.hue}, 100%, 60%)`;
 		const bulbCenterOffset = new Vector(0, (this.size / 2) * 0.15);
 		ctx.arc(
 			this.x + bulbCenterOffset.x,
@@ -37,7 +37,7 @@ class Light {
 		this.image.width = width;
 		this.image.height = height;
 		const ctxImage = this.image.getContext("2d");
-		ctxImage.filter = "blur(10px)";
+		ctxImage.filter = "blur(" + Math.round(this.size / 10) + "px)";
 		ctxImage.drawImage(tmp, 0, 0);
 		ctxImage.filter = "none";
 		ctxImage.drawImage(tmp, 0, 0);
