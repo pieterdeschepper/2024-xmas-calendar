@@ -5,7 +5,6 @@ class Cloud {
 		if (canvas) {
 			this.x = this.direction > 0 ? -size * 2 : canvas.width + size;
 		}
-		console.log(this.x, this.direction);
 		this.y = y + size * 0.2;
 		this.size = size;
 		this.cloud = [];

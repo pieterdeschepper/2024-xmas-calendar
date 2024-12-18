@@ -43,7 +43,8 @@ class Scene {
 	}
 
 	update() {
-		this.wind += randomBetween(-0.001, 0.001);
+		this.wind += randomBetween(-0.002, 0.002);
+		this.wind = constrain(this.wind, -0.03, 0.03);
 	}
 
 	draw() {

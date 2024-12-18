@@ -100,6 +100,10 @@ class Snowman {
 		this.hat = new Hat(x, currentCenter - size * 0.1, size * 0.36);
 	}
 
+	update(wind) {
+		this.scarf.update(wind);
+	}
+
 	draw(ctx) {
 		for (let snowBall of this.snowBalls) {
 			snowBall.draw(ctx);
