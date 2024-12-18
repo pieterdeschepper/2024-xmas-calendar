@@ -58,13 +58,6 @@ class Tree {
 	}
 
 	draw(ctx) {
-		// ctx.lineWidth = 1;
-		// ctx.strokeRect(
-		// 	this.x - this.len * 2,
-		// 	this.y - this.len * 2,
-		// 	this.len * 4,
-		// 	this.len * 4
-		// );
 		if (!this.image) {
 			this.render(ctx.canvas);
 		}
