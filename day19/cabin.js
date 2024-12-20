@@ -3,6 +3,7 @@ class Cabin {
 		this.x = x;
 		this.y = y;
 		this.size = size;
+		this.logCount = Math.round(randomBetween(8, 11));
 		this.door = null;
 		this.window = null;
 		this.chimney = null;
@@ -25,23 +26,22 @@ class Cabin {
 			this.chimney.draw(ctx); //Day 22
 		}
 
-		const logCount = 10;
-		const logHeight = this.size / 2 / logCount;
+		const logHeight = this.size / 2 / this.logCount;
 		const logWidth = this.size * 0.9;
-		const widthReduction = logWidth / logCount;
-		for (let i = 0; i < logCount; i++) {
+		const widthReduction = logWidth / this.logCount;
+		for (let i = 0; i < this.logCount; i++) {
 			new Log(
 				this.x,
-				this.y + (logCount - 1 - i) * logHeight + logHeight / 2,
+				this.y + (this.logCount - 1 - i) * logHeight + logHeight / 2,
 				logWidth,
 				logHeight
 			).draw(ctx);
 		}
-		for (let i = logCount - 1; i >= 0; i--) {
+		for (let i = this.logCount - 1; i >= 0; i--) {
 			new Log(
 				this.x,
-				this.y - (logCount - 1 - i) * logHeight + logHeight / 2,
-				logWidth - widthReduction * (logCount - 1 - i),
+				this.y - (this.logCount - 1 - i) * logHeight + logHeight / 2,
+				logWidth - widthReduction * (this.logCount - 1 - i),
 				logHeight
 			).draw(ctx);
 		}
