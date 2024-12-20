@@ -17,4 +17,8 @@ class Color {
 	static bell = "#d9d900";
 	static bellRing = "#d9b900";
 	static bellClapper = "#d19c00";
+	static cabin = "#8B4513";
+	static cabinShadow = "#692300";
+	static door = "#7A3402";
+	static window = "#d9d900";
 }

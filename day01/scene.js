@@ -7,6 +7,9 @@ class Scene1 extends Scene {
 		const height = this.canvas.height - 100;
 		for (let i = 0; i < rowCount; i++) {
 			for (let j = 0; j < colCount; j++) {
+				if (i == rowCount - 1 && j == 0) {
+					continue; // Skip this start to make room for moon (day02)
+				}
 				const x = randomBetween(
 					(i * this.canvas.width) / rowCount,
 					((i + 1) * this.canvas.width) / rowCount
