@@ -18,6 +18,7 @@ classes[14] = Light;
 classes[15] = Cord;
 classes[16] = Ball;
 classes[17] = XmasTree;
+classes[18] = Bell;
 
 const scenes = [];
 scenes[1] = Scene1;
@@ -37,6 +38,7 @@ scenes[14] = Scene14;
 scenes[15] = Scene15;
 scenes[16] = Scene16;
 scenes[17] = Scene17;
+scenes[18] = Scene18;
 
 let currentScene = null;
 

@@ -14,4 +14,7 @@ class Color {
 	static cloudShadow = "#b4b4b4";
 	static cloud = "#dcdcdc";
 	static leave = "#00770066";
+	static bell = "#d9d900";
+	static bellRing = "#d9b900";
+	static bellClapper = "#d19c00";
 }
