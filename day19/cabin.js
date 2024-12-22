@@ -49,9 +49,15 @@ class Cabin {
 		ctx.save();
 		ctx.translate(this.x, this.y);
 		ctx.rotate(Math.PI / 4);
-		new Log(0, -this.size * 0.31, this.size * 0.8, logHeight).draw(ctx);
+		new Log(0, -this.size * 0.31, this.size * 0.8, logHeight).draw(
+			ctx,
+			Color.cabinShadow
+		);
 		ctx.rotate(-Math.PI / 2);
-		new Log(0, -this.size * 0.31, this.size * 0.8, logHeight).draw(ctx);
+		new Log(0, -this.size * 0.31, this.size * 0.8, logHeight).draw(
+			ctx,
+			Color.cabinShadow
+		);
 		ctx.restore();
 
 		if (this.door) {
@@ -72,14 +78,15 @@ class Log {
 		this.height = height;
 	}
 
-	draw(ctx) {
+	draw(ctx, strokeColor = null) {
 		this.drawPart(
 			ctx,
 			this.x,
 			this.y,
 			this.width,
 			this.height,
-			Color.cabinShadow
+			Color.cabinShadow,
+			strokeColor
 		);
 		this.drawPart(
 			ctx,
@@ -91,7 +98,7 @@ class Log {
 		);
 	}
 
-	drawPart(ctx, x, y, width, height, color) {
+	drawPart(ctx, x, y, width, height, color, strokeColor = null) {
 		ctx.fillStyle = color;
 		ctx.beginPath();
 		ctx.moveTo(x - width / 2 + height / 2, y - height / 2);
@@ -112,5 +119,7 @@ class Log {
 			-Math.PI / 2
 		);
 		ctx.fill();
+		ctx.strokeStyle = Color.cabinShadow;
+		ctx.stroke();
 	}
 }

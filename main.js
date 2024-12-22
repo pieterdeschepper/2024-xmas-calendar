@@ -22,6 +22,7 @@ classes[18] = Bell;
 classes[19] = Cabin;
 classes[20] = Door;
 classes[21] = Window;
+classes[22] = Chimney;
 
 const scenes = [];
 scenes[1] = Scene1;
@@ -45,6 +46,7 @@ scenes[18] = Scene18;
 scenes[19] = Scene19;
 scenes[20] = Scene20;
 scenes[21] = Scene21;
+scenes[22] = Scene22;
 
 let currentScene = null;
 
