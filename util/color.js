@@ -11,8 +11,8 @@ class Color {
 	static moon = "#d9d900";
 	static moonCrater = "#b7b700";
 	static moonCraterShadow = "#626200";
-	static cloudShadow = "#b4b4b4";
 	static cloud = "#dcdcdc";
+	static cloudShadow = "#b4b4b4";
 	static leave = "#00770066";
 	static bell = "#d9d900";
 	static bellRing = "#d9b900";
@@ -21,4 +21,5 @@ class Color {
 	static cabinShadow = "#692300";
 	static door = "#7A3402";
 	static window = "#d9d900";
+	static smoke = "#cccccc";
 }
