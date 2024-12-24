@@ -4,11 +4,12 @@ class Snowflake {
 		this.x = x;
 		this.y = y;
 		this.size = size;
-		this.speed = randomBetween(0.5, 1);
+		this.speed = randomBetween(0.3, 0.7);
 		this.sideSpeed = 0;
 		this.rotation = randomBetween(0, Math.PI * 2);
 		this.rotationDirection = Math.random() > 0.5 ? 1 : -1;
 		this.generate(this.size / 2);
+		this.image = null;
 	}
 
 	generate(size) {
@@ -39,12 +40,17 @@ class Snowflake {
 		this.y += this.speed;
 	}
 
-	draw(ctx) {
+	render() {
+		this.image = document.createElement("canvas");
+		this.image.width = this.size;
+		this.image.height = this.size;
+		const ctx = this.image.getContext("2d");
+
 		ctx.beginPath();
 		ctx.fillStyle = Color.snow;
 
 		ctx.save();
-		ctx.translate(this.x, this.y);
+		ctx.translate(this.size / 2, this.size / 2);
 		ctx.rotate(this.rotation);
 
 		for (let i = 0; i < 6; i++) {
@@ -61,6 +67,13 @@ class Snowflake {
 			ctx.restore();
 		}
 		ctx.restore();
+	}
+
+	draw(ctx) {
+		if (!this.image) {
+			this.render();
+		}
+		ctx.drawImage(this.image, this.x - this.size / 2, this.y - this.size / 2);
 	}
 }
 

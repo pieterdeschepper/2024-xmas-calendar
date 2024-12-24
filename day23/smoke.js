@@ -6,10 +6,11 @@ class Smoke {
 		this.opacity = 255;
 	}
 
-	update() {
-		this.opacity -= 2;
+	update(wind) {
+		this.opacity -= 1;
 		this.size += 0.1;
-		this.y -= 1;
+		this.y -= 0.5;
+		this.x += wind * 3;
 	}
 
 	draw(ctx) {

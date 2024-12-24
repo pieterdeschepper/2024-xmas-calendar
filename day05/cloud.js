@@ -41,7 +41,7 @@ class Cloud {
 	}
 
 	update() {
-		this.x += this.direction;
+		this.x += this.direction / 2;
 	}
 
 	draw(ctx) {
