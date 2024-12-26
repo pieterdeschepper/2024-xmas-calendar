@@ -9,7 +9,7 @@ class Scene5 extends Scene4 {
 
 		const cloudSize = randomBetween(70, 90);
 
-		if (this.frameCount % 120 == 1) {
+		if (this.frameCount % 240 == 1) {
 			this.clouds.push(
 				new Cloud(
 					0,
